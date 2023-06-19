@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form & toggle</title>
+        <style>
+            ul {
+                display: flex;
+                flex-direction: column;
+            }
+            li {
+                list-style-type: none;
+            }
+            figure {
+                padding: 1%;
+                display: flex;
+                background-color: blanchedalmond;
+                border: 1px solid gainsboro;
+                border-radius: 25px;
+                cursor: pointer;
+            }
+            img {
+                width: 15vh;
+                height: 15vh;
+                border-radius: 50%;
+            }
+            .toggle{
+                background-color: aliceblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="student in students">
+                    <!-- : means binding -->
+                    <figure :class="{toggle: student.toggle}" @click="toggled(student)">
+                        <img :src="student.img" :alt="student.fullName">
+                        <figcaption>
+                            <h3>{{student.fullName}}</h3>
+                            <p><a :href="student.mail">{{student.mail}}</a></p>
+                            <small>{{student.favLanguage}}</small>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <form>
+                <label for="userInput">
+                    Your Full Name : 
+                    <input @keyup="userData($event)" v-model="userInput" type="text" name="fullName" id="userInput" placeholder="Full Name"/>
+                </label>
+            </form>
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="./js/script3.js"></script>
+    </body>
+</html>

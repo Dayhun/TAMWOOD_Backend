@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mouse Action</title>
+        <style>
+            section {
+                display: flex;
+                flex-wrap: wrap;
+                width: 40%;
+                gap: 3vh;
+            }
+            .squares{
+                font-weight: 600;
+                width: 30vh;
+                height: 30vh;
+                background-color: firebrick;
+                color: whitesmoke;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <section>
+                <div class="squares" @mousemove="cursorPosition">Mouse move - Position X: {{x}} - Position Y: {{y}}</div>
+                <div class="squares" @mouseover="classEvent('This is Mouse over')">Mouse Over</div>
+                <div class="squares" @mouseleave="classEvent('This is Mouse Leaving')">Mouse Leave</div>
+                <div class="squares" @dblclick="classEvent('This is Double Click')" @click="displayEvent($event)">Double Click</div>
+            </section>
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="./js/script2.js"></script>
+    </body>
+</html>
