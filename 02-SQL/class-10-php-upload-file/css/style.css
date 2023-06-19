@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.gallery {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vh;
+}
+
+.gallery figure {
+    width: 25%;
+    min-height: 40vh;
+}
+
+.gallery img {
+    width: 30vh;
+    height: 30vh;
+}
